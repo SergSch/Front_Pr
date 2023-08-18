@@ -1,0 +1,103 @@
+/* Здесь будем экспериментировать и писать код. */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* .grid-container {
+  border: 1px solid blue;
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  grid-template-rows: repeat(3, 300px);
+  align-items: center;
+  grid-auto-rows: 150px;
+} */
+
+.box {
+  border: 1px solid black;
+  min-height: 200px;
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+.box1 {
+  background-color: red;
+}
+
+.box2 {
+  background-color: yellow;
+  grid-column: 2/4;
+  grid-row: 1/3;
+}
+
+.box3 {
+  background-color: lightgreen;
+}
+
+.box4 {
+  background-color: orange;
+}
+
+.box5 {
+  background-color: blue;
+}
+
+.box6 {
+  background-color: cyan;
+}
+
+.box7 {
+  background-color: lightsalmon;
+}
+
+.box8 {
+  background-color: darkgreen;
+}
+
+.box9 {
+  background-color: purple;
+}
+
+.product-card {
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px lightblue;
+  padding: 10px;
+  background-color: white;
+}
+
+.product-card:hover .product-name {
+  color: blue;
+}
+
+.product-img {
+  aspect-ratio: 1 / 1;
+}
+
+.product-name {
+  color: #0096cd;
+  font-weight: 700;
+  font-size: 18px;
+  transition: all 0.4s;
+}
+
+.product-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  grid-template-rows: repeat(2, minmax());
+}

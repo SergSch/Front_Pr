@@ -1,0 +1,28 @@
+.block {
+  padding: 15px;
+  border: 1px solid black;
+}
+.container {
+  display: grid;
+  grid-template-areas:
+    'header header'
+    'menubar content'
+    'footer footer';
+  grid-template-columns: 150px 1fr;
+  grid-template-rows: 170px 1fr 100px;
+}
+.header {
+  grid-area: header;
+}
+.menubar {
+  grid-area: menubar;
+  align-self: start;
+}
+.content {
+  grid-area: content;
+  display: flex;
+  justify-content: space-between;
+}
+.footer {
+  grid-area: footer;
+}

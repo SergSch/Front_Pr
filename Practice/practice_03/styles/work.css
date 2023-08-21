@@ -171,7 +171,15 @@ button {
   .connect {
     width: 300px;
   }
+  .name,
+  .contact {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
   input {
+    width: 100%;
+  }
+  button {
     width: 100%;
   }
 }

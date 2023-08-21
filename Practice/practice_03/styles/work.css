@@ -69,13 +69,19 @@ img {
   font-weight: 700;
 }
 .connect {
-  width: 500px;
+  max-width: 510px;
   border: 1px solid rgb(224, 212, 212);
   border-radius: 10px;
   margin: 20px auto;
   padding: 10px;
   display: none;
   position: relative;
+}
+.name,
+.contact {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
 }
 .kreuz {
   font-size: 28px;

@@ -35,22 +35,17 @@ numbers.forEach((elem, i) => {
 });
 
 // 4.4---------------------------------------
-let newArr = [];
-numbers.forEach((elem) => {
-  newArr.push(elem ** 2);
-});
-
+let newArr = (par) => par.map((el) => el ** 2);
+console.log(newArr(numbers));
 // 5.1---------------------------------------
-const findDividerFour = numbers.findIndex((elem) => {
+const findDividerFour = numbers.find((elem) => {
   return elem % 4 === 0;
 });
-console.log(findDivider);
+console.log(findDividerFour);
 
 // 5.2---------------------------------------
-const findDividerThree = numbers.findIndex((elem) => {
-  return elem % 3 === 0;
-});
-console.log(findDividerThree);
+const findThree = (par) => par.findIndex((elem) => elem % 3 === 0);
+console.log(findThree(numbers));
 
 // 5.4---------------------------------------
 let oddNum = numbers.filter((elem) => elem % 2 === 1);
@@ -84,17 +79,9 @@ strings.forEach((elem, i) => {
 });
 
 // 4.5---------------------------------------
-let newArrStr = [];
-strings.forEach((elem) => {
-  let str = '';
-  if (elem.length > 4) {
-    str = 'long';
-  } else {
-    str = 'short';
-  }
-  newArrStr.push(`{${elem}: ${str}}`);
-});
-console.log(newArrStr);
+const newStr = (par) =>
+  par.map((elem) => ({ elem: elem, size: elem.length < 4 ? 'short' : 'long' }));
+console.log(newStr(strings));
 
 // 5.5---------------------------------------
 let strMoreThanFive = strings.filter((elem) => elem.length > 5);
@@ -139,6 +126,7 @@ const shark = {
   img: './assets/shark.jpeg',
   price: 45,
 };
+
 // Массив объектов
 let products = [ball, gloves, shoes, hammer, saw];
 
@@ -165,19 +153,12 @@ products.forEach((elem) => {
 });
 
 // 4.6----------------------------
-let newArrNames = [];
-products.forEach((elem) => {
-  newArrNames.push(elem.name);
-});
-console.log(newArrNames);
+const newArrGoods = (arr) => arr.map((elem) => elem.name);
+console.log(newArrGoods(products));
 
 // 4.7----------------------------
-let arrWithReducePrices = [];
-products.forEach((elem) => {
-  elem.price /= 2;
-  arrWithReducePrices.push(elem);
-});
-console.log(arrWithReducePrices);
+const newArrPrice = (par) => par.map((elem) => elem.price / 2);
+console.log(newArrPrice(products));
 
 // 5.3--------------------------------
 let findGood = products.find((elem) => elem.category === 'Tools');

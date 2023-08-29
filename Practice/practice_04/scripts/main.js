@@ -80,7 +80,10 @@ strings.forEach((elem, i) => {
 
 // 4.5---------------------------------------
 const newStr = (par) =>
-  par.map((elem) => ({ elem: elem, size: elem.length < 4 ? 'short' : 'long' }));
+  par.map((elem) => ({
+    value: elem,
+    size: elem.length < 4 ? 'short' : 'long',
+  }));
 console.log(newStr(strings));
 
 // 5.5---------------------------------------
@@ -126,7 +129,6 @@ const shark = {
   img: './assets/shark.jpeg',
   price: 45,
 };
-
 // Массив объектов
 let products = [ball, gloves, shoes, hammer, saw];
 

@@ -97,3 +97,62 @@ console.log(unique([4, 5, 3, 3, 5, 44, 0, 4, 3, 6, 6, 6]))
 
 
 // Преобразование объектов: У вас есть массив объектов с информацией о студентах. Напишите функцию, которая преобразует этот массив в массив строк, где каждая строка содержит имя студента и его средний балл, например: "Иванов: 4.5".
+const students = [
+
+]
+
+// Напишите функцию camelize(str), которая преобразует строки вида «my-short-string» в «myShortString».
+
+// То есть дефисы удаляются, а все слова после них получают заглавную букву.
+
+const camelize = str => str.split('-').map((el, i) => i == 0 ? el : el[0].toUpperCase() + el.slice(1)).join('');
+console.log(camelize("background-color"));
+
+// Напишите функцию filterRange(arr, a, b), которая принимает массив arr, ищет элементы со значениями больше или равными a и меньше или равными b и возвращает результат в виде массива.
+// Функция должна возвращать новый массив и не изменять исходный.
+
+function filterRange(arr, a, b) {
+  let newArr = arr.filter(elem => 
+     (elem >= a && elem <= b));
+ return newArr;
+}
+let aRr = [23, 34, 5, 23, 435, 4, 5, 50, 23, 7, 8, 73];
+console.log(filterRange(aRr, 5, 50))
+
+// Напишите функцию filterRangeInPlace(arr, a, b), которая принимает массив arr и удаляет из него все значения кроме тех, которые находятся между a и b. То есть, проверка имеет вид a ≤ arr[i] ≤ b.
+// Функция должна изменять принимаемый массив и ничего не возвращать.
+function filterRangeInPlace(arr, a, b) {
+  arr.slice(a, b);
+}
+let a = [23, 34, 5, 23, 435, 4, 5, 50, 23, 7, 8, 73];
+console.log(filterRangeInPlace(a, 2, 6));
+
+
+// У нас есть массив строк arr. Нужно получить отсортированную копию, но оставить arr неизменённым.
+// Создайте функцию copySorted(arr), которая будет возвращать такую копию.
+
+function copySorted (par) {
+  const newArr = par.slice().sort();
+  return newArr;
+}
+const arr = ["HTML", "JavaScript", "CSS"];
+console.log(copySorted(arr));
+console.log(arr);
+
+// У вас есть массив объектов user, и в каждом из них есть user.name. Напишите код, который преобразует их в массив имён.
+// let vasya = { name: "Вася", age: 25 };
+// let petya = { name: "Петя", age: 30 };
+// let masha = { name: "Маша", age: 28 };
+
+// let users = [ vasya, petya, masha ];
+// const arr = users.map(elem => elem.name);
+// console.log(arr);
+
+// Напишите функцию sortByAge(users), которая принимает массив объектов со свойством age и сортирует их по нему.
+let vasya = { name: "Вася", age: 25 };
+let petya = { name: "Петя", age: 30 };
+let masha = { name: "Маша", age: 28 };
+
+let arr = [ vasya, petya, masha ];
+const newArrAge = arr.sort((a, b) => a.age > b.age ? 1 : -1);
+console.log(newArrAge);

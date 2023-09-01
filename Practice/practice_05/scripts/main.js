@@ -126,14 +126,14 @@ let products = [ball, gloves, shoes, hammer, saw];
 // firstFail( [2,8,10,7,6,4,31], checker ); // { passed: [2,8,10], failed: [7,6,4,31] }
 // firstFail( [1,2,8,10,34,2], checker ); // {passed: [], failed: [1,2,8,10,34,2] }
 // ```
-// const checker = (el) => el % 2 === 0;
-// function firstFail(arr, callback) {
-//   let index = arr.findIndex((el) => !callback(el));
-//   let passed = arr.slice(0, index);
-//   let failed = arr.slice(index);
-//   return { passed: passed, failed: failed };
-// }
-// console.log(firstFail([2, 8, 10, 7, 6, 4, 31], checker));
+const checker = (el) => el % 2 === 0;
+function firstFail(arr, callback) {
+  let index = arr.findIndex((el) => !callback(el));
+  let passed = arr.slice(0, index);
+  let failed = arr.slice(index);
+  return { passed: passed, failed: failed };
+}
+console.log(firstFail([2, 8, 10, 7, 6, 4, 31], checker));
 
 // ------------------------------------------------------------------------------------------------
 // 6. Пишем функцию `summarizer`. Она принимает аргумент `addVal`, и должна вернуть другую функцию, которая также принимает число, и возвращает сумму этих двух чисел.
@@ -174,7 +174,6 @@ let products = [ball, gloves, shoes, hammer, saw];
 // const arr = [ 1,4,6,3,8,14,16,33,21,7,10,12];
 // findLongestSequence(arr, checker); // [8, 14, 16] - т.е самая длинная последовательность четных чисел в массиве
 // ```
-
 const checker = (x) => x % 2 === 0;
 function findLongestSequence(arr, callBack) {
   let newArr = [];

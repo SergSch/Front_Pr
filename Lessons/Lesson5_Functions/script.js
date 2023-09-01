@@ -54,13 +54,9 @@
 
 // Решение 2
 // function getSqrt(num) {
-//   if (Math.sqrt(num) % 1 === 0) {
-//     return true;
-//   } else {
-//     return false;
-//   }
+//   return Math.sqrt(num) % 1 === 0;
 // }
-// console.log(getSqrt(5));
+// console.log(getSqrt(9));
 
 // -------------------------------------------------------------------
 // Задание 2

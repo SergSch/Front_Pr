@@ -139,6 +139,8 @@ const newBall = {
   img: './assets/ball.jpeg',
   price: 100,
 };
+products.push(newBall);
+console.log(products);
 
 // 2.2------------------------
 const ballCopy = ball;

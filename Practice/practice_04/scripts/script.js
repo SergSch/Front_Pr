@@ -13,6 +13,10 @@
 //     return arr;
 // }
 // console.log(doubleDig(['apple', 'food', 'asdf', 'asdty']));
+// ---------------------------------------------------------------
+// const newStr = arr => arr.map(el => el.toUpperCase());
+// console.log(newStr(['apple', 'food', 'asdf', 'asdty']));
+// ----------------------------------------------------------------------------------------------------
 
 // Извлечение длин строк: Напишите функцию, которая принимает массив строк и возвращает новый массив, содержащий длины каждой строки.
 // function doubleDig(par) {
@@ -20,9 +24,12 @@
 //     return arr;
 // }
 // console.log(doubleDig(['apple', 'food', 'asdf', 'asdty']));
+// ------------------------
+// const strLength = arr => arr.map(el => el.length);
+// console.log(strLength(['apple', 'food', 'asdf', 'asdty']));
+// --------------------------------------------------------------------------------------------
 
 // Средние задачи:
-
 // Перевод температур: У вас есть массив температур в градусах Цельсия. Напишите функцию, которая принимает этот массив и возвращает новый массив, в котором каждая температура переведена в градусы Фаренгейта по формуле (C * 9/5) + 32.
 // function doubleDig(par) {
 //   let arr = par.map((elem) => (elem * 9) / 5 + 32);
@@ -149,10 +156,12 @@ console.log(arr);
 // console.log(arr);
 
 // Напишите функцию sortByAge(users), которая принимает массив объектов со свойством age и сортирует их по нему.
-let vasya = { name: "Вася", age: 25 };
-let petya = { name: "Петя", age: 30 };
-let masha = { name: "Маша", age: 28 };
+// let vasya = { name: "Вася", age: 25 };
+// let petya = { name: "Петя", age: 30 };
+// let masha = { name: "Маша", age: 28 };
 
-let arr = [ vasya, petya, masha ];
-const newArrAge = arr.sort((a, b) => a.age > b.age ? 1 : -1);
-console.log(newArrAge);
+// let arr = [ vasya, petya, masha ];
+// const newArrAge = arr.sort((a, b) => a.age > b.age ? 1 : -1);
+// console.log(newArrAge);
+
+// Сокращение имён: Создайте функцию, которая принимает массив имён (в формате "Имя Фамилия") и возвращает массив с инициалами (в формате "И. Ф.").

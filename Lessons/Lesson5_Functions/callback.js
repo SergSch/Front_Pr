@@ -102,13 +102,27 @@
 // console.log(
 //   changeString('somestring', (el) => !['s', 'm', 'g'].join('').includes(el))
 // );
-function changeString(str, callback) {
-  let newStr = '';
-  let arrayFromCallback = callback();
-  for (let elem of str) {
-    if (!arrayFromCallback.includes(elem)) {
-      newStr += elem;
-    }
-  }
-  return newStr;
-}
+
+// function changeString(str, callback) {
+//   let newStr = '';
+//   let arrayFromCallback = callback();
+//   for (let elem of str) {
+//     if (!arrayFromCallback.includes(elem)) {
+//       newStr += elem;
+//     }
+//   }
+//   return newStr;
+// }
+// console.log(changeString('somestring', () => ['s', 'm', 'g']));
+
+// function getCount(str) {
+//   let a = '';
+//   let arr = ['a', 'e', 'u', 'o', 'i'];
+//   for (let i of str) {
+//     if (arr.includes(i)) {
+//       a += i;
+//     }
+//   }
+//   return a.length;
+// }
+// console.log(getCount('woerihqnfa'));

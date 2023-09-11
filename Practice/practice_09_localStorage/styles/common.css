@@ -1,0 +1,76 @@
+/*
+* Здесь содержатся стили, не имеющие прямого отношения с списку товаров (общие стили)
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@400;700&family=Yellowtail&display=swap');
+
+/**
+* ОЧЕНЬ ВАЖНОЕ ПРАВИЛО!
+*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+  padding: 10px;
+}
+
+h1 {
+  color: #0096cd;
+  text-align: center;
+  margin: 15px auto;
+}
+
+.custom_ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 15px 10px;
+}
+
+.custom_ul > li {
+  padding: 5px;
+  margin-bottom: 5px;
+  color: #0096cd;
+  border-radius: 5px;
+  border: 1px solid gray;
+  box-shadow: 5px 5px 15px lightgray;
+}
+
+.wrapper {
+  display: none;
+  width: 30%;
+  margin: 0 auto;
+  padding: 30px;
+  border: 1px solid #be9292;
+  border-radius: 8px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-bottom: 30px;
+  position: relative;
+}
+.close {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  cursor: pointer;
+}
+input {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 5px 10px;
+}
+.send,
+.back {
+  display: block;
+  width: 50%;
+  padding: 10px 20px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.contact {
+  display: block;
+  margin: 0 auto;
+  padding: 20px 40px;
+}

@@ -126,11 +126,13 @@ const close = document.querySelector('.close');
 contact.addEventListener('click', () => {
   wrap.style.display = 'block';
   let serializedObj = localStorage.getItem('obj');
-  let deserializedObj = JSON.parse(serializedObj);
-  familie.value = deserializedObj.familie;
-  name.value = deserializedObj.name;
-  email.value = deserializedObj.email;
-  phone.value = deserializedObj.phone;
+  if (serializedObj != null) {
+    let deserializedObj = JSON.parse(serializedObj);
+    familie.value = deserializedObj.familie;
+    name.value = deserializedObj.name;
+    email.value = deserializedObj.email;
+    phone.value = deserializedObj.phone;
+  }
 });
 
 close.addEventListener('click', () => {

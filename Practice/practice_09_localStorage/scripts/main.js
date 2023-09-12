@@ -91,28 +91,20 @@ form.append(back);
 
 // --------------------------------------------------------------------------------------------
 // 6. Обеспечение сохранения данных полей формы при обновлении страницы, и заполнение значениями при показе формы.
-
+let obj;
 send.addEventListener('click', (ev) => {
   ev.preventDefault();
-  localStorage.setItem('familie', familie.value);
-  localStorage.setItem('name', name.value);
-  localStorage.setItem('email', email.value);
-  localStorage.setItem('phone', phone.value);
   let formAll = document.querySelectorAll('input');
+  obj = {
+    familie: familie.value,
+    name: name.value,
+    email: email.value,
+    phone: phone.value,
+  };
+  localStorage.setItem('obj', JSON.stringify(obj));
   formAll.forEach((el) => (el.value = ''));
 });
-familie.addEventListener('click', () => {
-  familie.value = localStorage.getItem('familie');
-});
-name.addEventListener('click', () => {
-  name.value = localStorage.getItem('name');
-});
-email.addEventListener('click', () => {
-  email.value = localStorage.getItem('email');
-});
-phone.addEventListener('click', () => {
-  phone.value = localStorage.getItem('phone');
-});
+
 // -------------------------------------------------------------------------
 
 // 7. Обеспечение очистки данных формы при нажатии "Отмена" - т.е. если пользователь нажал "Отмена", то очищаем localStorage
@@ -133,6 +125,12 @@ const close = document.querySelector('.close');
 
 contact.addEventListener('click', () => {
   wrap.style.display = 'block';
+  let serializedObj = localStorage.getItem('obj');
+  let deserializedObj = JSON.parse(serializedObj);
+  familie.value = deserializedObj.familie;
+  name.value = deserializedObj.name;
+  email.value = deserializedObj.email;
+  phone.value = deserializedObj.phone;
 });
 
 close.addEventListener('click', () => {

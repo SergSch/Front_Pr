@@ -3,14 +3,24 @@ const div_container = document.createElement('div');
 div_container.className = 'container';
 // div_container.classList.add('containet');
 div_root.append(div_container);
-const form = document.querySelector('form');
+const add_form = document.querySelector('.add_form');
+const update_form = document.querySelector('.update_form');
 
-form.onsubmit = (e) => {
+// Обработка данных с формы
+add_form.onsubmit = (e) => {
   e.preventDefault();
-  let form_data = new FormData(form);
+  let form_data = new FormData(add_form);
   let data = Object.fromEntries(form_data);
-  data.id = Date.now();
-  console.log(data);
+  // аналог автоинкримента для атрибута id нового элемента
+  data.id = users.length ? Math.max(...users.map((elem) => elem.id)) + 1 : 1;
+  addUser(data);
+};
+
+update_form.onsubmit = (e) => {
+  e.preventDefault();
+  let form_data = new FormData(update_form);
+  let { id, ...data } = Object.fromEntries(form_data);
+  updateUser(id, data);
 };
 
 let data = [
@@ -57,6 +67,27 @@ function deleteUserById(id) {
   users = users.filter((elem) => elem.id !== id);
   rerender(users);
 }
+
+// Добавление нового пользователя
+function addUser(obj) {
+  users.push(obj);
+  // users = [...users, obj];
+  rerender(users);
+}
+
+// Изменение данных пользователей
+function updateUser(id, obj) {
+  let findUser = users.find((elem) => elem.id == id);
+  if (findUser) {
+    findUser.name = obj.name;
+    findUser.salary = obj.salary;
+    rerender(users);
+  } else {
+    alert('ID does not exist');
+  }
+}
+
+// Вызов
 render(users);
 
 // Доработайте процесс таким образом, чтобы в момент обновления стрианцы

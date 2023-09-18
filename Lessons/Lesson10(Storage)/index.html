@@ -7,12 +7,24 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <form action="">
-      <input type="text" placeholder="name" name="name" />
-      <input type="text" placeholder="salary" name="salary" />
-      <input type="submit" />
-    </form>
+    <div class="form_container">
+      <form class="add_form">
+        <h2>Add new user</h2>
+        <input type="text" placeholder="name" name="name" />
+        <input type="text" placeholder="salary" name="salary" />
+        <input type="submit" />
+      </form>
+      <form class="update_form">
+        <h2>Update user</h2>
+
+        <input type="text" placeholder="id" name="id" />
+        <input type="text" placeholder="name" name="name" />
+        <input type="text" placeholder="salary" name="salary" />
+        <input type="submit" />
+      </form>
+    </div>
+
     <div id="root"></div>
-    <script src="sccript.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

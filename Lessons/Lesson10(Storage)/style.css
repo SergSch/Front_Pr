@@ -39,3 +39,19 @@
   border-radius: 50%;
   cursor: pointer;
 }
+
+.form_container {
+  margin: 50px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.form_container > form {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  border: 1px solid black;
+  border-radius: 15px;
+}

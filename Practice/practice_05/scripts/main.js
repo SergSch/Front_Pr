@@ -61,17 +61,17 @@ let products = [ball, gloves, shoes, hammer, saw];
 // console.log(isPalindrom('Anna'));
 
 // 2. Пишем функцию `onlyForDiscounted`. Функция принимает массив (товаров), и функцию-колбэк, которую она должна выполнить только для тех товаров, у которых `discounted = true`.
-// function onlyForDiscounted(arr, myCallBack) {
-//   for (let i = 0; i < arr.length; i++) {
-//     if (arr[i].discount) {
-//       myCallBack(arr[i]);
-//     }
-//   }
-// }
-// const productCallback = (product) => {
-//   console.log(product.name, 'is discounted');
-// };
-// onlyForDiscounted(products, productCallback);
+function onlyForDiscounted(arr, myCallBack) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].discount) {
+      myCallBack(arr[i]);
+    }
+  }
+}
+const productCallback = (product) => {
+  console.log(product.name, 'is discounted');
+};
+onlyForDiscounted(products, productCallback);
 
 // ----------------------------------------------------------------------------
 // 3. Написать свою реализацию метода `forEach` - назовем ее `customForEach`. Пишем функцию, которая принимает первым аргументом массив, а вторым - функцию-колбэк, которую нужно выполнить для каждого элемента массива.
@@ -126,14 +126,14 @@ let products = [ball, gloves, shoes, hammer, saw];
 // firstFail( [2,8,10,7,6,4,31], checker ); // { passed: [2,8,10], failed: [7,6,4,31] }
 // firstFail( [1,2,8,10,34,2], checker ); // {passed: [], failed: [1,2,8,10,34,2] }
 // ```
-const checker = (el) => el % 2 === 0;
-function firstFail(arr, callback) {
-  let index = arr.findIndex((el) => !callback(el));
-  let passed = arr.slice(0, index);
-  let failed = arr.slice(index);
-  return { passed: passed, failed: failed };
-}
-console.log(firstFail([2, 8, 10, 7, 6, 4, 31], checker));
+// const checker = (el) => el % 2 === 0;
+// function firstFail(arr, callback) {
+//   let index = arr.findIndex((el) => !callback(el));
+//   let passed = arr.slice(0, index);
+//   let failed = arr.slice(index);
+//   return { passed: passed, failed: failed };
+// }
+// console.log(firstFail([2, 8, 10, 7, 6, 4, 31], checker));
 
 // ------------------------------------------------------------------------------------------------
 // 6. Пишем функцию `summarizer`. Она принимает аргумент `addVal`, и должна вернуть другую функцию, которая также принимает число, и возвращает сумму этих двух чисел.
@@ -173,17 +173,26 @@ console.log(firstFail([2, 8, 10, 7, 6, 4, 31], checker));
 // const checker = (x) => x % 2 === 0;
 // const arr = [ 1,4,6,3,8,14,16,33,21,7,10,12];
 // findLongestSequence(arr, checker); // [8, 14, 16] - т.е самая длинная последовательность четных чисел в массиве
-// ```
-const checker = (x) => x % 2 === 0;
-function findLongestSequence(arr, callBack) {
-  let newArr = [];
+// // ```
+function findLongestSequence(arr, checker) {
+  let longestSequence = [];
+  let currentSequence = [];
   for (let i = 0; i < arr.length; i++) {
-    if (callBack(arr[i])) {
-      newArr.push(arr[i]);
+    if (checker(arr[i])) {
+      currentSequence.push(arr[i]);
+    } else {
+      if (currentSequence.length > longestSequence.length) {
+        longestSequence = [...currentSequence];
+      }
+      currentSequence = [];
     }
   }
-  return newArr;
+  if (currentSequence.length > longestSequence.length) {
+    longestSequence = [...currentSequence];
+  }
+  return longestSequence;
 }
-console.log(
-  findLongestSequence([1, 4, 6, 3, 8, 14, 16, 33, 21, 7, 10, 12], checker)
-);
+const checker = (x) => x % 2 === 0;
+const arr = [1, 4, 6, 3, 8, 14, 16, 33, 21, 7, 10, 12];
+const result = findLongestSequence(arr, checker);
+console.log(result); // [8, 14, 16]

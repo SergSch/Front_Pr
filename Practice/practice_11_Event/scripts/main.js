@@ -10,11 +10,9 @@
 
 // 2. Работаем с всплытием событий. В DOM добавлен блок `div#bubblingBlock`. В нем есть кнопки с разными текстами. Нужно сделать так, чтобы при клике на кнопки, в консоль выводилось сообщение "Кликнута кнопка ТЕКСТ_КНОПКИ". ВАЖНО! Обработчик клика добавляем НЕ на кнопки!
 
-// const bubblingBlock = document.querySelectorAll('#bubblingBlock');
-// bubblingBlock.forEach((el) => {
-//   el.addEventListener('click', (event) => {
-//     console.log(`Кликнута кнопка ${event.target.innerText}`);
-//   });
+// const bubblingBlock = document.querySelector('#bubblingBlock');
+// bubblingBlock.addEventListener('click', (event) => {
+//   console.log(`Кликнута кнопка ${event.target.innerText}`);
 // });
 
 // ---------------------------------------------------------------------------------------
@@ -22,11 +20,8 @@
 //  - нам нужно обрабатывать события на уровне документа, т.е. добавить ОДИН обработчик.
 //  - для получения типа узла, используем свойство `nodeName` элемента.
 
-// const all = document.querySelectorAll('body');
-// all.forEach((el) => {
-//   el.addEventListener('click', (event) => {
-//     console.log(`This is element ${event.target.nodeName}`);
-//   });
+// document.addEventListener('click', (event) => {
+//   console.log(`This is element ${event.target.nodeName}`);
 // });
 // -----------------------------------------------------------------------------------
 
@@ -34,9 +29,7 @@
 
 // const hideThirdTask = document.querySelector('#firstButton');
 // hideThirdTask.addEventListener('click', () => {
-//   all.forEach((el) => {
-//     el.addEventListener('click', event.stopPropagation());
-//   });
+//   event.stopPropagation();
 // });
 
 // -----------------------------------------------------------------------------------------

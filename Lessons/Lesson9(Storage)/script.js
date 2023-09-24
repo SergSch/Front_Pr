@@ -51,11 +51,20 @@ rem.addEventListener('click', () => {
 });
 
 // --------------------------------------------------------------------
+// const body = document.body;
+// const theme_btn = document.querySelector('.theme_btn');
+// body.className = localStorage.getItem('theme') ?? 'light';
+
+// theme_btn.addEventListener('click', () => {
+//   body.className = body.className === 'dark' ? 'light' : 'dark';
+//   localStorage.setItem('theme', body.className !== 'dark' ? 'light' : 'dark');
+// });
+
+// ---------------------------------------------------------------------
 const body = document.body;
 const theme_btn = document.querySelector('.theme_btn');
-body.className = localStorage.getItem('theme') ?? 'light';
-
+body.className = localStorage.getItem('theme') ?? 'ligth';
 theme_btn.addEventListener('click', () => {
-  body.className = body.className === 'dark' ? 'light' : 'dark';
+  body.className = body.className == 'dark' ? 'light' : 'dark';
   localStorage.setItem('theme', body.className !== 'dark' ? 'light' : 'dark');
 });

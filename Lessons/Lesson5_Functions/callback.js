@@ -123,6 +123,6 @@
 //       a += i;
 //     }
 //   }
-//   return a.length;
+//   return a;
 // }
 // console.log(getCount('woerihqnfa'));

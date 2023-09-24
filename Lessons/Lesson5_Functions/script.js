@@ -25,8 +25,8 @@
 // 2)
 // Стрелочная функция
 
-// let double = (num) => ({num : [num ** 2]});
-// console.log(double(10)); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+let double = (num) => ({ num: [num ** 2] });
+console.log(double(10));
 
 // let double = (num) => num ** 2;
 // console.log(double(10));

@@ -47,6 +47,7 @@ const shark = {
 
 // Массив объектов
 let products = [ball, gloves, shoes, hammer, saw, shark];
+
 // 2. Получить суммарную стоимость всех товаров массива `products`
 // const sumGoods = products.reduce((acc, el) => acc + el.price, 0);
 // console.log(sumGoods);
@@ -148,12 +149,12 @@ let removeDuplicates = [1, 4, 7, 1, 2, 3, 3, 2, 2, 4, 9];
 
 // ----------------------------------------------------------------------------------------------------
 // 9. Задача "со звездочкой". Получить объект, в котором ключами будут ID-ы параграфов на странице, а значениями - тексты параграфов.
-const newObj = document.querySelectorAll('.root');
-const res = Array.from(newObj).reduce((acc, value) => {
-  acc[value.id] = value.textContent;
-  return acc;
-}, {});
-console.log(res);
+// const newObj = document.querySelectorAll('.root');
+// const res = Array.from(newObj).reduce((acc, value) => {
+//   acc[value.id] = value.textContent;
+//   return acc;
+// }, {});
+// console.log(res);
 // --------------------------------------------------------------------------------------------
 
 // ```

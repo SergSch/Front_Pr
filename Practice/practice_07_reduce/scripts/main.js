@@ -11,14 +11,15 @@ const numbers = [10, 45, 3, 9, 19, 11, -5, 0, 7, 21, 89, 68, 1, 13, 8];
 // console.log(newArr);
 
 const strings = ['This', 'is', 'an', 'array', 'of', 'Test', 'strings'];
-const obj = strings.reduce((a, b) => {
-  a[b] = b.length;
-  return a;
-}, {});
-console.log(obj);
+
+// const obj = strings.reduce((a, b) => {
+//   a[b] = b.length;
+//   return a;
+// }, {});
+// console.log(obj);
 
 // 5. Отсортировать массив строк `strings` по возрастанию.
-// strings.sort();
+// strings.sort((a, b) => a.localeCompare(b));
 // console.log(strings);
 
 // 1 const newStr = strings.map((el) => el.toUpperCase());
@@ -79,7 +80,11 @@ const shark = {
 };
 // Массив объектов
 let products = [ball, gloves, shoes, hammer, saw, shark];
-
+let a = products.reduce((acc, elem) => {
+  acc[elem.category] = (elem.price || 0) + 1;
+  return acc;
+}, {});
+console.log(a);
 // 2 const names = products.map((el) => el.name);
 // console.log(names);
 
@@ -152,3 +157,15 @@ let products = [ball, gloves, shoes, hammer, saw, shark];
 //   return accumulator;
 // }, {});
 // console.log(objSum);
+
+// 4. Дан массив строк. Представим, что эти строки - тексты элементов списка, полученных с "бэка". Наша задача - создать неупорядоченный список (`ul`) на нашей странице, и добавить в него эти элементы (в виде тегов `li`). Списку добавить класс `custom_ul`. Добавить список на страницу после элемента <div.root>.
+
+const root = document.querySelector('.root');
+const ul = document.createElement('ul');
+ul.classList.add('custom_ul');
+root.append(ul);
+strings.forEach((el) => {
+  let li = document.createElement('li');
+  li.innerText = el;
+  ul.append(li);
+});

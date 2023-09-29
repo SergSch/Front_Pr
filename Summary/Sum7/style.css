@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.usersCard {
+  /* width: 250px; */
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 30px;
+  position: relative;
+}
+.usersCard > p:not(:last-child) {
+  margin-bottom: 20px;
+}
+.root {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  /* justify-items: center; */
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}

@@ -63,25 +63,25 @@
 
 // 5. Добавляем на страницу текущие дату и время. Нужно добавить в разметку блок, в котором должны отображаться текущие дата и время, вида `01.01.2000 11:23:55`. И нужно сделать так, чтобы дата и время отображались актуальные (т.е. обновлять текст ежесекундно).
 
-const root = document.querySelector('#root');
-const date = document.createElement('p');
-setInterval(() => {
-  let time = new Date();
-  date.innerHTML =
-    time.getDate() +
-    '-' +
-    (time.getMonth() + 1) +
-    '-' +
-    time.getFullYear() +
-    ' ' +
-    time.getHours() +
-    ':' +
-    time.getMinutes() +
-    ':' +
-    time.getSeconds();
-}, 1000);
+// const root = document.querySelector('#root');
+// const date = document.createElement('p');
+// setInterval(() => {
+//   let time = new Date();
+//   date.innerHTML =
+//     time.getDate() +
+//     '-' +
+//     (time.getMonth() + 1) +
+//     '-' +
+//     time.getFullYear() +
+//     ' ' +
+//     time.getHours() +
+//     ':' +
+//     time.getMinutes() +
+//     ':' +
+//     time.getSeconds();
+// }, 1000);
 
-root.append(date);
+// root.append(date);
 
 // ------------------------------------------------------------
 
@@ -103,11 +103,13 @@ root.append(date);
 // timer.innerText = 0;
 
 // start.addEventListener('click', function foo() {
-//   count = setInterval(() => {
-//     a++;
-//     timer.innerText = a;
-//   }, 1000);
-//   this.removeEventListener('click', foo);
+//   if (a == 0) {
+//     count = setInterval(() => {
+//       a++;
+//       timer.innerText = a;
+//     }, 1000);
+//   }
+//   // this.removeEventListener('click', foo);
 // });
 
 // stop.addEventListener('click', () => {
@@ -136,36 +138,38 @@ root.append(date);
 // let a = 0;
 // let count;
 // timer.innerText = 0;
+// let continueClicked = false;
 
-// start.addEventListener('click', function foo() {
+// function foo() {
 //   count = setInterval(() => {
 //     a++;
 //     timer.innerText = a;
 //   }, 1000);
-//   this.removeEventListener('click', foo);
+// }
+
+// start.addEventListener('click', () => {
+//   if (a == 0) {
+//     foo();
+//   }
 // });
 
 // pause.addEventListener('click', () => {
 //   clearInterval(count);
+//   continueClicked = false;
 // });
 
 // goOn.addEventListener('click', () => {
-//   count = setInterval(() => {
-//     a++;
-//     timer.innerText = a;
-//   }, 1000);
+//   if (a != 0 && !continueClicked) {
+//     foo();
+//     continueClicked = true;
+//   }
 // });
 
 // stop.addEventListener('click', () => {
 //   clearInterval(count);
 //   a = 0;
 //   timer.innerText = a;
-//   start.addEventListener('click', function foo() {
-//     count = setInterval(() => {
-//       a++;
-//       timer.innerText = a;
-//     }, 1000);
-//   });
+//   continueClicked = false;
 // });
 
 // -------------------------------------------------------------------------
@@ -194,10 +198,3 @@ root.append(date);
 // });
 
 // ---------------------------------------------------------------------
-
-// 10. Пишем сетевой запрос. Наша задача - обратиться к "бэку" по адресу `https://fakestoreapi.com/products/categories` GET-запросом, и вывести в консоль результат в "удобоваримом" виде (результат нам возвращается в виде JSON). Этот запрос нам вернет массив с категориями товаров.
-fetch(
-  fetch('https://fakestoreapi.com/products/categorie')
-    .then((response) => response.json())
-    .then((json) => console.log(json))
-);

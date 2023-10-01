@@ -70,10 +70,10 @@ function postFetchUsers() {
   const url = 'http://158.160.60.49:3050/user/create';
 
   let newRow = {
-    name: 'Tigran',
-    age: 30,
+    name: 'Serg',
+    age: 40,
     salary: 1000,
-    job_id: '',
+    job_id: 'no',
   };
 
   fetch(url, {
@@ -87,5 +87,20 @@ function postFetchUsers() {
     .then((data) => console.log(data));
 }
 
-// postFetchUsers()
+// postFetchUsers();
 getFetchUsers();
+const userIdToDelete = 276;
+const url = `http://158.160.60.49:3050/user/${userIdToDelete}`;
+fetch(url, {
+  method: 'DELETE',
+})
+  .then((response) => {
+    if (response.ok) {
+      console.log('Учетная запись успешно удалена.');
+    } else {
+      console.error('Не удалось удалить учетную запись.');
+    }
+  })
+  .catch((error) => {
+    console.error('Произошла ошибка при удалении учетной записи:', error);
+  });

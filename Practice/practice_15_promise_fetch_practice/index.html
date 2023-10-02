@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice_15</title>
+
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/common.css">
+</head>
+
+<body>
+    <h1>Практическое занятие №15</h1>
+    <div class="card">
+        <h3>Тема занятия</h3>
+        <p>Асинхронные операции. Сетевые запросы (fetch, Promise)</p>
+    </div>
+
+    <div class="root" id="root">
+        <div class="loader">Please, wait!</div>
+        <select id="categoriesSelect"></select>
+        <button id="addProductBtn">Add Product</button>
+        <div id="productsContainer" class="productsContainer"></div>
+    </div>
+
+    <div class="modalContainer" id="modalContainer">
+        <div id="productFormContainer" class="productFormContainer">
+            <div class="productForm">
+                <input name="title" placeholder="Product name"/>
+                <input name="price" placeholder="Product price"/>
+                <input name="description" placeholder="Product description"/>
+                <button id="sendProductForm">Send product data</button>
+            </div>
+        </div>
+    </div>
+    <script src="./scripts/main.js"></script>
+</body>
+</html>

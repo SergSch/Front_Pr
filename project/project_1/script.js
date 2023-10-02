@@ -30,14 +30,12 @@ btnAdd.classList.add('btn');
 btnAdd.innerText = 'Add Card';
 main.append(btnAdd, container);
 
-// Добавьте это здесь
-
+let localData = JSON.parse(localStorage.getItem('users'));
 function getUsers() {
   const url = 'https://jsonplaceholder.typicode.com/users';
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      let localData = JSON.parse(localStorage.getItem('users'));
       if (localData) {
         renderUser(localData);
       } else {
@@ -115,11 +113,24 @@ const createForm = () => {
   });
   form.addEventListener('submit', (event) => {
     event.preventDefault();
-    let formData = new FormData(form);
-    let data = Object.fromEntries(formData);
-    data.img = 'https://picsum.photos/200';
-    data.id = Date.now();
-    console.log(data);
+    const formData = new FormData(event.target);
+    const userName = formData.get('User Name');
+    const userEmail = formData.get('User Email');
+    if (!userName || !userEmail) {
+      alert('Заполните все поля формы!');
+      return;
+    }
+    const userObj = {
+      img: 'https://picsum.photos/200',
+      name: userName,
+      email: userEmail,
+      id: Date.now(),
+    };
+    localData.push(userObj);
+    renderUser(localData);
+    localStorage.setItem('users', JSON.stringify(localData));
+    inputName.value = '';
+    inputEmail.value = '';
   });
 };
 createForm();

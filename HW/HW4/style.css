@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 320px;
+  line-height: 1;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+/* h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+} */
+.theme {
+  position: absolute;
+  top: 20px;
+  right: 100px;
+  cursor: pointer;
+  z-index: 5;
+}
+.dark {
+  color: #fff;
+  background: #232529;
+}
+.dark .card {
+  border: 1px solid rgb(236, 222, 222);
+  color: #fff;
+  background: #000;
+}
+.root {
+  position: relative;
+}
+.container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+  padding-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid black;
+  padding: 30px;
+}
+
+.image img {
+  width: 100%;
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 15px;
+}
+.title {
+  margin-bottom: 15px;
+}
+
+.active {
+  color: orange;
+}

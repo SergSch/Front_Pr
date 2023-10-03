@@ -84,3 +84,11 @@ h6 {
 .active {
   color: orange;
 }
+
+.stars {
+  margin-top: 20px;
+  text-align: center;
+}
+.stars span:not(:last-child) {
+  margin-right: 10px;
+}

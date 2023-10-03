@@ -60,6 +60,8 @@ const renderProducts = (productsArray) => {
     dropProductBtn.classList.add('dropProductBtn');
     dropProductBtn.innerText = 'Drop';
 
+    productCard.dataset.id = product.id;
+
     dropProductBtn.addEventListener('click', (event) => {
       deleteProduct(product.id);
     });
@@ -225,11 +227,12 @@ const sendJsonRequest = (url) => {
     fetch(url)
       .then((response) => {
         if (response.ok) {
-          resolve(response.json());
+          return response.json();
         } else {
           reject(response);
         }
       })
+      .then((respData) => resolve(respData))
       .catch((error) => reject(error));
   });
 };
@@ -239,4 +242,5 @@ sendJsonRequest(`https://fakestoreapi.com/products`)
   })
   .catch((error) => {
     console.log(error);
-  });
+  })
+  .finally(() => console.log('Promises finished'));

@@ -57,13 +57,6 @@ const render = (data) => {
     const title = document.createElement('h3');
     const price = document.createElement('p');
 
-    const block_star = document.createElement('div');
-    const star = document.createElement('span');
-    star.classList.add('fa', 'fa-star');
-    for (let i = 0; i < 5; i++) {
-      block_star.innerText += star;
-    }
-
     card.classList.add('card');
     title.classList.add('title');
 
@@ -72,9 +65,25 @@ const render = (data) => {
     price.innerText = `Price: ${elem.price}$`;
 
     div_img.append(img);
-    card.append(div_img, title, price, block_star);
+    card.append(div_img, title, price, rating(elem.rating));
     container.append(card);
   });
 };
 
-const rating = () => {};
+const rating = (n) => {
+  let a = Math.round(n);
+  const block_star = document.createElement('div');
+  block_star.classList.add('stars');
+
+  let star;
+  for (let i = 0; i < 5; i++) {
+    star = document.createElement('span');
+    star.classList.add('fa', 'fa-star');
+    if (i < a) {
+      star.classList.add('active');
+    }
+    block_star.append(star);
+  }
+
+  return block_star;
+};

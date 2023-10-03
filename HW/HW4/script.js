@@ -74,7 +74,6 @@ const rating = (n) => {
   let a = Math.round(n);
   const block_star = document.createElement('div');
   block_star.classList.add('stars');
-
   let star;
   for (let i = 0; i < 5; i++) {
     star = document.createElement('span');

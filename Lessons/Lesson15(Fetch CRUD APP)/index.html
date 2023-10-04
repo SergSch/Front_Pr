@@ -5,8 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
   </head>
   <body>
+    <div class="theme">
+      <span class="material-symbols-outlined"> sunny</span>
+    </div>
     <div class="form_wrapper">
       <form action="" class="post_form">
         <h3>Add new User</h3>
@@ -21,8 +32,18 @@
         <input type="number" placeholder="id" name="id" />
         <input type="submit" />
       </form>
+      <form action="" class="update_form">
+        <h3>Update User</h3>
+        <input type="number" placeholder="id" name="id" />
+        <input type="text" placeholder="name" name="name" id="" />
+        <input type="text" placeholder="age" name="age" id="" />
+        <input type="text" placeholder="salary" name="salary" id="" />
+        <input type="text" placeholder="job_id" name="job_id" id="" />
+        <input type="submit" />
+      </form>
     </div>
     <div id="root"></div>
+    <!-- <script src="repeat.js"></script> -->
     <script src="script.js"></script>
   </body>
 </html>

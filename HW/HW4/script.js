@@ -17,7 +17,7 @@ function addDarkClassToHtml() {
     change.textContent = ' sunny';
   } else {
     body.classList.remove('dark');
-    change.textContent = 'dark_mode ';
+    change.textContent = 'dark_mode';
   }
 }
 addDarkClassToHtml();

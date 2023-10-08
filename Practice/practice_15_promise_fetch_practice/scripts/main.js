@@ -176,7 +176,7 @@ const task4Demo = () => {
   });
   Promise.all([firstPromise, secondPromise])
     .then((res) => console.log(res[0] + res[1]))
-    .catch((error) => console.log(error))
+    .catch((error) => console.log('something went wrong!', error))
     .finally(() => console.log('All promises are finished now!'));
 };
 // task4Demo();

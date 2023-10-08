@@ -22,17 +22,13 @@ async function getProducts() {
 }
 
 async function init() {
-  //   try {
-  //     let myPr = await (promiseFactory = promiseFactory(
-  //       false,
-  //       3,
-  //       'Something went wrong!'
-  //     ));
-  //     console.log(myPr);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  //   getProducts();
+  try {
+    let myPr = await promiseFactory(false, 3, 'Something went wrong!');
+    console.log(myPr);
+  } catch (err) {
+    console.log(err);
+  }
+  getProducts();
 
   const asyncFunction = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -86,7 +82,7 @@ sum();
 async function jsonRequest(url) {
   try {
     let response = await fetch(url);
-    if (!response.ok) {
+    if (!url) {
       throw new Error('Please, provide the URL!');
     }
     let data = await response.json();
@@ -100,3 +96,25 @@ async function jsonRequest(url) {
 let res = jsonRequest(`https://fakestoreapi.com/products`).then((data) => {
   data.forEach((elem) => console.log(data));
 });
+// ------------------------------------
+
+async function jsonRequest(url) {
+  if (!url) {
+    throw new Error('Please provide the URL!');
+  }
+  let response = await fetch(url);
+  let data = await response.json();
+  return data;
+}
+// ...
+// т.к. у нас jsonRequest асинхронная, то нам надо результат обрабатывать ИЛИ через async/await, ИЛИ через
+// промисы
+async function requestSomething() {
+  try {
+    const res = await jsonRequest();
+    return res;
+  } catch (err) {
+    console.log(err);
+  }
+}
+requestSomething();

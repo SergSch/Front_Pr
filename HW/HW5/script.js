@@ -49,7 +49,34 @@ function getTodos(user) {
       console.log(error);
     });
 }
-getTodos('Leopoldo_Corkery');
+// getTodos('Leopoldo_Corkery');
+
+// async function getTodos(username) {
+//   let urlUsers = `https://jsonplaceholder.typicode.com/users`;
+//   let resUsers = await fetch(urlUsers);
+//   let dataUser = await resUsers.json();
+//   let user = dataUser.find((elem) => elem.username === username);
+//   console.log(user.id);
+
+//   let urlTodos = `https://jsonplaceholder.typicode.com/todos`;
+//   let resTodos = await fetch(urlTodos);
+//   let dataTodos = await resTodos.json();
+//   let result = dataTodos.filter((elem) => elem.userId === user.id);
+//   console.log(result);
+// }
+// getTodos('Bret');
+
+async function getTodos(username) {
+  let urlUsers = `https://jsonplaceholder.typicode.com/users?username=${username}`;
+  let resUsers = await fetch(urlUsers);
+  let dataUser = await resUsers.json();
+
+  let urlTodos = `https://jsonplaceholder.typicode.com/todos?userId=${dataUser[0].id}`;
+  let resTodos = await fetch(urlTodos);
+  let dataTodos = await resTodos.json();
+  console.log(dataTodos);
+}
+getTodos('Bret');
 
 // -------------------------------------------------------------------
 
@@ -91,7 +118,7 @@ function getComments(title) {
       console.error('Произошла ошибка:', error.message);
     });
 }
-getComments('doloremque illum aliquid sunt');
+// getComments('doloremque illum aliquid sunt');
 
 // =----------------------------------------------------------
 
@@ -132,7 +159,7 @@ function getPhotoByNickName(user) {
       console.error('Произошла ошибка:', error.message);
     });
 }
-getPhotoByNickName('Maxime_Nienow');
+// getPhotoByNickName('Maxime_Nienow');
 
 // async function getPhotoByNickName(user) {
 //   try {

@@ -71,7 +71,7 @@ async function deleteUsers(id) {
       method: 'DELETE',
     });
     let response = await request.json();
-    getUsers(response);
+    getUsers();
   } catch (err) {
     console.log(err);
   }
@@ -115,7 +115,7 @@ async function updateUsers(obj, id) {
       body: JSON.stringify(obj),
     });
     let response = await request.json();
-    getUsers(response);
+    getUsers();
   } catch (err) {
     console.log(err);
   }

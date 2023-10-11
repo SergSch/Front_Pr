@@ -79,25 +79,25 @@ console.log(car5);
 
 // ---------------------------------------------------
 // 8. Работаем с более сложным объектом. У нас есть объект `dwarf` - персонаж компьютерной игры, гном. Нужно создать его "глубокую" копию `dwarfClone`, но при этом его свойство `name` должно быть `Torin`, а его навык в рукопашной (`melee`) должен быть 15.
-// const dwarf = {
-//   name: 'Karst',
-//   level: 12,
-//   fraction: 'Dwarwes',
-//   skills: {
-//     magic: 0,
-//     melee: 17,
-//     archery: 0,
-//   },
-// };
+const dwarf = {
+  name: 'Karst',
+  level: 12,
+  fraction: 'Dwarwes',
+  skills: {
+    magic: 0,
+    melee: 17,
+    archery: 0,
+  },
+};
 
-// const dwarfCopy = {
-//   ...dwarf,
-//   name: 'Torin',
-//   skills: {
-//     ...dwarf.skills,
-//     melee: 18,
-//   },
-// };
+const dwarfCopy = {
+  ...dwarf,
+  name: 'Torin',
+  skills: {
+    ...dwarf.skills,
+    melee: 18,
+  },
+};
 
 // const dwarfClone1 = JSON.parse(JSON.stringify(dwarf));
 // console.log(dwarfClone1)
@@ -108,16 +108,20 @@ console.log(car5);
 
 // 9. Теперь, напишем функцию `dwarwesFight` - она принимает в аргументах двух гномов, и должна определить, кто из них лучше в рукопашной (то есть, у кого из них значение `melee` больше). И вывести в консоль победителя. Для определения ОБЯЗАТЕЛЬНО использовать деструктурирующее присваивание!
 
-// function dwarwesFight(first, second) {
-//   let firstDwarfMelee = first.skills.melee;
-//   let secondDwarfMelee = second.skills.melee;
-//   if (firstDwarfMelee > secondDwarfMelee) {
-//     console.log('First dwarf is stronger!');
-//   } else {
-//     console.log('Second dwarf is stronger!');
-//   }
-// }
-// dwarwesFight(dwarf, dwarfCopy);
+function dwarwesFight(first, second) {
+  let {
+    skills: { meele: firstDwarfMelee },
+  } = first;
+  let {
+    skills: { melee: secondDwarfMelee },
+  } = second;
+  if (firstDwarfMelee > secondDwarfMelee) {
+    console.log('First dwarf is stronger!');
+  } else {
+    console.log('Second dwarf is stronger!');
+  }
+}
+dwarwesFight(dwarf, dwarfCopy);
 
 // ----------------------------------------------------
 
@@ -164,8 +168,8 @@ const baseDwarfWeapons = [
   },
 ];
 
-// let [weapon1, weapon2] = [...baseDwarfWeapons];
-// let [, , weapon3, weapon4] = [...baseDwarfWeapons];
+// let [weapon1, weapon2] = baseDwarfWeapons;
+// let [, , weapon3, weapon4] = baseDwarfWeapons;
 // console.log(weapon1);
 // console.log(weapon2);
 // console.log(weapon3);
@@ -186,8 +190,8 @@ const dwarf = {
     archery: 0,
   },
 };
-dwarf.weapon = baseDwarfWeapons;
-// console.log(dwarf);
+dwarf.weapon = [...baseDwarfWeapons];
+console.log(dwarf);
 
 // ---------------------------------------------------------
 
@@ -199,8 +203,5 @@ const dwarfCopy = {
     melee: 18,
   },
 };
-let [...newBaseDwarfWeapons] = dwarfCopy.weapon.filter(
-  (elem) => elem.type == 'melee'
-);
-dwarfCopy.weapon = newBaseDwarfWeapons;
+dwarfCopy.weapon = dwarfCopy.weapon.filter((elem) => elem.type == 'melee');
 console.log(dwarfCopy);

@@ -93,18 +93,51 @@
 // Результат:
 // 'Сегодня вторник'
 
-function getWeekDay() {
-  let date = new Date();
-  let day = date.getDay();
-  let days = [
-    'воскресенье',
-    'понедельник',
-    'вторник',
-    'среда',
-    'четверг',
-    'пятница',
-    'суббота',
-  ];
-  console.log(`Сегодня - ${days[day]}`);
-}
-getWeekDay();
+// function getWeekDay() {
+//   let days = [
+//     'воскресенье',
+//     'понедельник',
+//     'вторник',
+//     'среда',
+//     'четверг',
+//     'пятница',
+//     'суббота',
+//   ];
+//   console.log(`Сегодня - ${days[new Date().getDay()]}`);
+// }
+// getWeekDay();
+
+// ------------------------------------
+
+let date = new Date('2023-5-10 15:30:00');
+console.log(date.getTime());
+
+// -----------------------
+
+// Задана дата
+// Посчитайте количество пройденных часов с указанной даты, до текущего момента времени
+let date = new Date('2023-10-9 16:00:00 GMT').getTime();
+let hour = Date.now();
+let res = Math.round((hour - date) / (1000 * 60 * 60));
+console.log(res);
+
+// -----------------------
+// Задана дата
+// Посчитайте количество пройденных недель с указанной даты, до текущего момента времени
+// Полученный ответ округлите по правилам математики
+
+let date = new Date('2023-2-25 1:00:00 GMT').getTime();
+let date_now = Date.now();
+let res = Math.round((date_now - date) / (1000 * 60 * 60 * 24 * 7));
+console.log(res);
+
+// ---------------------------------------------------
+
+let date2 = new Date('2023-2-25 1:00:00 ');
+console.log(date2.toLocaleString());
+console.log(date2.toLocaleTimeString());
+console.log(date2.toLocaleDateString());
+
+// ------------------------------------------------------
+
+console.log(date2.toLocaleString(''));

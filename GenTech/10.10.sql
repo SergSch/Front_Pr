@@ -108,3 +108,48 @@ inner join jobs t2
 on t1.job_id = t2.job_id;
 
 
+
+-- написать запрос, который выводит имя и фамилию сотрудника и название департамента, в котором он работает-- 
+use hr;
+
+select
+	t1.first_name,
+    t1.last_name,
+    t2.department_id
+from employees t1
+left join departments t2
+on t1.department_id = t2.department_id;
+
+-- написать запрос, который выводит название департамента и город, в котором этот департамент находится
+
+select
+	t1.department_name,
+	t2.city
+from departments t1
+inner join locations t2
+on t1.location_id = t2.location_id;
+
+-- к прошлому запросу добавьте join к countries
+-- и в выборке отобразите названия стран добавить вывод названия региона
+
+select
+	t1.department_name,
+	t2.city,
+    t3.country_name,
+    t4.region_name
+from departments t1
+inner join locations t2
+on t1.location_id = t2.location_id
+inner join countries t3
+on t2.country_id = t3.country_id
+inner join regions t4
+on t3.region_id = t4.region_id;
+
+-- написать запрос, который выводит названия департаментов  в которых нет сотрудников
+
+select
+	t1.department_name
+from departments t1
+left join employees t2
+on t1.department_id = t2.department_id 
+where t2.employee_id is null;

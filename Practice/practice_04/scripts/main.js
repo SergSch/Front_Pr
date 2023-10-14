@@ -59,6 +59,7 @@ strings.splice(6, 0, 'and', 'lowercased');
 
 // 1.8---------------------------------------
 strings.splice(5, 3, 'tiny');
+console.log(strings);
 
 // 2.1---------------------------------------
 let incl = strings.includes('array');

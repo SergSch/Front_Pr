@@ -142,55 +142,27 @@ async function getComments(title) {
 
 //3.  Напишите функцию getPhotoByNickName(username), которая в качестве аргумента принимает никнейм пользователя (/users) и выводит все его фотографии (/photos). В качестве ответа выведите в консоль массив со всеми фотографиями указанного пользователя.
 
-function getPhotoByNickName(nickname) {
+async function getPhotoByNickName(nickname) {
   let urlUser = `https://jsonplaceholder.typicode.com/users?username=${nickname}`;
-  fetch(urlUser)
-    .then((response) => response.json())
-    .then((data) => {
-      return new Promise((resolve, reject) => {
-        let urlPhotos = `https://jsonplaceholder.typicode.com/photos?albumId=${data[0].url}`;
-        fetch(urlPhotos)
-          .then((responce) => responce.json())
-          .then((data) => {
-            resolve(data);
-            console.log(data);
-          });
-      });
-    });
+  let resp = await fetch(urlUser);
+  let dataUser = await resp.json();
+  console.log(dataUser);
+
+  let urlAlbums = `https://jsonplaceholder.typicode.com/albums?userId=${dataUser[0].id}`;
+  let respAlb = await fetch(urlAlbums);
+  let dataAlb = await respAlb.json();
+  console.log(dataAlb);
+
+  let newArrPhotos;
+  let result = [];
+  for (let i = 0; i < dataAlb.length; i++) {
+    let urlPhotos = `https://jsonplaceholder.typicode.com/photos?albumId=${dataAlb[0]
+      .id++}`;
+    let respPhotos = await fetch(urlPhotos);
+    let dataPhotos = await respPhotos.json();
+    // console.log(dataPhotos);
+    newArrPhotos = dataPhotos.map((elem) => result.push(elem.url));
+  }
+  console.log(result);
 }
 getPhotoByNickName('Karianne');
-// getPhotoByNickName('Karianne').then((res) => console.log(res));
-
-// function getPhotoByNickName(username) {
-//   let urlUser = `https://jsonplaceholder.typicode.com/users?username=${username}`;
-
-//   // Запрос информации о пользователе
-//   fetch(urlUser)
-//     .then((response) => response.json())
-//     .then((userData) => {
-//       if (userData.length === 0) {
-//         console.log('Пользователь не найден');
-//         return;
-//       }
-
-//       let userId = userData[0].id;
-//       let urlPhotos = `https://jsonplaceholder.typicode.com/photos?userId=${userId}`;
-
-//       // Запрос фотографий пользователя
-//       fetch(urlPhotos)
-//         .then((photoResponse) => photoResponse.json())
-//         .then((photoData) => {
-//           console.log('Фотографии пользователя:');
-//           console.log(photoData.slice(0, 50)); // Выводим только первые 50 фотографий
-//         })
-//         .catch((error) => {
-//           console.error('Ошибка при получении фотографий:', error);
-//         });
-//     })
-//     .catch((error) => {
-//       console.error('Ошибка при получении информации о пользователе:', error);
-//     });
-// }
-
-// getPhotoByNickName('Karianne');
-// getPhotoByNickName('Karianne').then((res) => console.log(res));

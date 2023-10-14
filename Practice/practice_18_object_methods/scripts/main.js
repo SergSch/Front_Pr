@@ -35,6 +35,10 @@ const middleDwarf = {
     archery: 2,
   },
 };
+const copy = structuredClone(middleDwarf);
+copy.skills.melee = 50;
+console.log(middleDwarf);
+console.log(copy);
 
 let middleDwarf1 = { ...middleDwarf };
 middleDwarf1.skills = { ...middleDwarf.skills };
@@ -230,6 +234,7 @@ const seriousDwarf = {
     },
   },
 };
+
 function archeryControl(obj) {
   let arr = [];
   Object.entries(obj.weapons).forEach(([name, data]) => {
@@ -275,23 +280,70 @@ const seriousDwarf = {
   },
 };
 
-function getDwarfSkills(dwarf) {
-  const weapons = dwarf.weapons;
-  const skillByCategory = {};
+// function getDwarfSkills(dwarf) {
+//   const weapons = dwarf.weapons;
+//   const skillByCategory = {};
 
-  for (const weaponName in weapons) {
-    const weapon = weapons[weaponName];
-    const category = weapon.type;
-    const skill = weapon.skill;
+//   for (const weaponName in weapons) {
+//     const weapon = weapons[weaponName];
+//     const category = weapon.type;
+//     const skill = weapon.skill;
 
-    if (skillByCategory[category]) {
-      skillByCategory[category] += skill;
-    } else {
-      skillByCategory[category] = skill;
-    }
-  }
+//     if (skillByCategory[category]) {
+//       skillByCategory[category] += skill;
+//     } else {
+//       skillByCategory[category] = skill;
+//     }
+//   }
 
-  return skillByCategory;
+//   return skillByCategory;
+// }
+// const dwarfSkills = getDwarfSkills(seriousDwarf);
+// console.log(dwarfSkills);
+
+const seriousDwarf = {
+  name: 'Karst',
+  level: 12,
+  fraction: 'Dwarwes',
+  weapons: {
+    sword: {
+      type: 'melee',
+      skill: 12,
+    },
+    axe: {
+      type: 'melee',
+      skill: 14,
+    },
+    crossbow: {
+      type: 'archery',
+      skill: 3,
+    },
+  },
+};
+
+function getDwarfSkills(obj) {
+  let new_arr = Object.entries(obj.weapons).reduce(
+    (acc, [weaponName, weaponData]) => {
+      acc[weaponData.type] = (acc[weaponData.type] || 0) + weaponData.skill;
+      return acc;
+    },
+    {}
+  );
+  return new_arr;
 }
-const dwarfSkills = getDwarfSkills(seriousDwarf);
-console.log(dwarfSkills);
+console.log(getDwarfSkills(seriousDwarf));
+
+function getDwarfSkills(obj) {
+  const arr = Object.entries(obj.weapons);
+  const weapons = arr.map((elem) => elem.slice(1));
+  const arr1 = [];
+  for (let i of weapons) {
+    arr1.push(...i);
+  }
+  let res = arr1.reduce((acc, elem) => {
+    acc[elem.type] = (acc[elem.type] || 0) + elem.skill;
+    return acc;
+  }, {});
+  return res;
+}
+console.log(getDwarfSkills(seriousDwarf));

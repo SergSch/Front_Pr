@@ -73,3 +73,39 @@ function foo({ a, b }) {
   return q;
 }
 // console.log(foo({ a: 10, b: 5 }));
+
+// -------------============Reduce==========--------------------
+
+// const numbers = [1, 2, 3, 10, 30];
+// const sum = numbers.reduce((acc, elem) => acc + elem);
+// console.log(sum);
+
+// ------------
+const users = [
+  {
+    id: 1,
+    name: 'Ivan',
+    age: 28,
+    salary: 1000,
+  },
+  {
+    id: 2,
+    name: 'Boris',
+    age: 14,
+    salary: 40,
+  },
+  {
+    id: 3,
+    name: 'Maria',
+    age: 17,
+    salary: 90,
+  },
+  {
+    id: 4,
+    name: 'Irina',
+    age: 46,
+    salary: 1300,
+  },
+];
+// let sumAge = users.reduce((acc, val) => acc + val.age, 0);
+// console.log(sumAge);

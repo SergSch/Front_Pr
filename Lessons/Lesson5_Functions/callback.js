@@ -115,14 +115,14 @@
 // }
 // console.log(changeString('somestring', () => ['s', 'm', 'g']));
 
-// function getCount(str) {
-//   let a = '';
-//   let arr = ['a', 'e', 'u', 'o', 'i'];
-//   for (let i of str) {
-//     if (arr.includes(i)) {
-//       a += i;
-//     }
-//   }
-//   return a;
-// }
-// console.log(getCount('woerihqnfa'));
+function getCount(str) {
+  let a = '';
+  let arr = ['a', 'e', 'u', 'o', 'i'];
+  for (let i of str) {
+    if (arr.includes(i)) {
+      a += i;
+    }
+  }
+  return a;
+}
+console.log(getCount('woerihqnfa'));

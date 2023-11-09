@@ -1,16 +1,18 @@
 const productsContainerEl = document.querySelector('.products-container');
+const modalArea = document.querySelector('.modal-area');
+const modal = document.querySelector('.modal');
 
 // 1. И вновь работаем с интернет-магазином. Наша первая задача - получить с бэка (`https://fakestoreapi.com/products`) список товаров, записать его в массив `productsDataSource`, и вывести его в консоль.
 
 let productsDataSource = [];
-
+showLoader();
 fetch('https://fakestoreapi.com/products')
   .then((resp) => resp.json())
   .then((products) => {
     productsDataSource = products;
-    console.log(productsDataSource);
     renderProducts(productsDataSource);
-  });
+  })
+  .finally(() => hideLoader());
 
 // async function getSupplies() {
 //   const url = 'https://fakestoreapi.com/products';
@@ -51,12 +53,10 @@ function renderProduct(arr) {
 // ```
 
 function renderProducts(arr) {
-  showLoader();
   productsContainerEl.innerHTML = '';
   arr.forEach((elem) => {
     productsContainerEl.append(renderProduct(elem));
   });
-  hideLoader();
 }
 
 // getSupplies();
@@ -130,9 +130,6 @@ searchButton.addEventListener('click', () => {
 //  - добавляем ему стили в CSS-файле. По умолчанию он невидимый.
 //  - пишем функции `showLoader`, `hideLoader`, которые будут показывать/скрывать иконку загрузки
 //  - вызываем эти функции в местах до и после сетевого запроса из п.1.
-
-const modalArea = document.querySelector('.modal-area');
-const modal = document.querySelector('.modal');
 
 function showLoader() {
   modalArea.classList.remove('hide');

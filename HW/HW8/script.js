@@ -163,4 +163,6 @@ function kebabize(str) {
 }
 
 console.log(kebabize('camelsHaveThreeHumps'));
-console.log(kebabize('CAMEK'));
+console.log(kebabize('CAMEL'));
+
+

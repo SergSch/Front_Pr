@@ -1,6 +1,6 @@
 
 -- ПРАКТИКА 
-
+ 
 use group_090523_300523;
 
 -- 1. Создайте таблицу products (id, title, quantity)

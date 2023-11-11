@@ -80,3 +80,32 @@ function groupById(arr) {
 
 let usersById = groupById(users);
 console.log(usersById);
+
+const funds = [
+  { amount: -1400 },
+  { amount: 2400 },
+  { amount: -1000 },
+  { amount: 500 },
+  { amount: 10400 },
+  { amount: -11400 },
+];
+
+const getPositiveIncomeAmount = (data) => {
+  return data
+    .filter((elem) => elem.amount > 0)
+    .reduce((acc, elem) => acc + elem.amount, 0);
+};
+console.log(getPositiveIncomeAmount(funds));
+
+const getTotalIncomeAmount = (data) => {
+  let arr = data.map((elem) => Object.values(elem));
+  let sum = 0;
+  if (arr.some((elem) => elem[0] < 0)) {
+    sum = arr.reduce((acc, elem) => {
+      return acc + elem[0];
+    }, 0);
+  } else {
+  }
+  return sum;
+};
+console.log(getTotalIncomeAmount(funds));

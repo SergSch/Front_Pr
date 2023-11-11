@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:regular,700,800&display=swap');
 * {
   padding: 0;
   margin: 0;
@@ -70,11 +71,9 @@ body {
 /* ----------------Modal--------------------- */
 
 .login_form {
-  width: 360px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 30px;
 }
 
 .popup {
@@ -91,17 +90,66 @@ body {
 }
 
 .popup_content {
+  width: 420px;
   position: relative;
   background-color: #fff;
   border-radius: 20px;
+  padding: 32px;
+}
+.registr {
+  color: #000;
+  font-family: Nunito;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 14px;
 }
 
+.popup_content input {
+  width: 100%;
+  padding: 7px 16px;
+  border-radius: 12px;
+  border: 1px solid #cfd8dc;
+  outline: none;
+}
+
+.popup_content input:focus-visible {
+  border-color: #4dff6b;
+}
+
+.descr {
+  color: #7b8e98;
+  font-family: Nunito;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 24px;
+}
 .close {
   position: absolute;
   top: 15px;
   right: 20px;
   cursor: pointer;
 }
+
+.popup_content button {
+  display: flex;
+  padding: 14px 24px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 87px;
+  outline: none;
+  border-radius: 87px;
+  border: 1px solid #cfd8dc;
+  color: #1a1a1a;
+  font-family: Nunito;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.popup_content button:hover {
+  border-radius: 55px;
+  background: #ffe44d;
+}
+
 .modal-active {
   display: flex;
 }

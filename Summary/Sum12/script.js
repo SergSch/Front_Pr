@@ -26,3 +26,6 @@ close.addEventListener('click', () => {
 });
 // css: прописать стили для класса modal_active
 // если класс modal_active есть, то popup виден. если класса нет - то popup невиден
+popup.addEventListener('click', () => {
+  popup.classList.remove('modal-active');
+});

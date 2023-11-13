@@ -1,35 +1,67 @@
-const slidersRnd = document.querySelectorAll('.sliders_rnd > span'),
-  prev = document.querySelector('.prev'),
-  next = document.querySelector('.next');
-let slidIndex = 1;
+const frame = document.querySelector('.frame');
+const first_cont = document.createElement('div');
 
-function showSlides(n) {
-  if (n > slidersRnd.length) {
-    slidIndex = 1;
-  }
-  if (n < 1) {
-    slidIndex = slidersRnd.length;
-  }
-  slidersRnd.forEach((elem) => (elem.style.background = ''));
-  slidersRnd[slidIndex - 1].style.background = 'orange';
-}
+let slidIn = 0;
 
-function plusSlide(n) {
-  showSlides((slidIndex += n));
+first_cont.classList.add('first_cont');
+
+for (let i = 0; i < 4; i++) {
+  const first_card = document.createElement('div');
+  const firstTitle = document.createElement('h1');
+
+  first_card.classList.add('first_card');
+  firstTitle.classList.add('title');
+
+  firstTitle.textContent = 'Бухгалтерские услуги в вашем городе';
+
+  first_card.append(firstTitle);
+  first_cont.append(first_card);
 }
-prev.addEventListener('click', () => {
-  plusSlide(-1);
+frame.append(first_cont);
+
+// ---------Buttons
+
+const [btnL, btnR] = document.querySelectorAll('.triggers > button');
+
+btnR.addEventListener('click', () => {
+  if (slidIn !== 3) {
+    first_cont.style.left = `${-1 * ++slidIn * 600}px`;
+  } else {
+    slidIn = 0;
+    first_cont.style.left = '0px';
+  }
 });
-next.addEventListener('click', () => {
-  plusSlide(+1);
+
+btnL.addEventListener('click', () => {
+  if (slidIn != 0) {
+    first_cont.style.left = `${-1 * --slidIn * 600}px`;
+  } else {
+    slidIn = 3;
+    first_cont.style.left = `${-1 * slidIn * 600}px`;
+  }
 });
+
+const firstSliderRnd = document.querySelector('.sliders_rnd');
+for (let i = 0; i < 4; i++) {
+  const roundBtn = document.createElement('div');
+  roundBtn.className = 'firstRounded';
+  firstSliderRnd.append(roundBtn);
+
+  roundBtn.addEventListener('click', () => {
+    slidIn = i;
+    first_cont.style.left = `${-1 * slidIn * 600}px`;
+  });
+}
 
 // -------------------------------------------------------
-const client_slider = document.querySelector('.client_slider');
-const clients_container = document.querySelector('.clients_container');
+
+const client_frame = document.querySelector('.client_frame');
+let card_cont = document.createElement('div');
+card_cont.classList.add('card_cont');
+
 let sliderIndex = 0;
 
-let cardWidth = 400;
+let cardWidth = 1100;
 
 const images = [
   './img/micros.png',
@@ -40,15 +72,13 @@ const images = [
 
 function render(arr) {
   for (let elem of arr) {
-    let card = document.createElement('div');
-    card.classList.add('card');
-    card.style.backgroundImage = `url(${elem})`;
-    card.style.backgroundPosition = 'center';
-    card.style.backgroundRepeat = 'no-repeat';
-    card.style.backgroundSize = 'cover';
-    clients_container.append(card);
+    let img_cont = document.createElement('div');
+    img_cont.classList.add('img_cont');
+    img_cont.innerHTML = elem;
+    card_cont.append(img_cont);
   }
 }
+client_frame.append(card_cont);
 render(images);
 
 const [btnLeft, btnRight] = document.querySelectorAll('.triggersJS > button');

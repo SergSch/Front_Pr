@@ -35,8 +35,10 @@ class Slider {
     const sliderCard = document.createElement('div');
     sliderCard.classList.add('sliderCard');
     const img = document.createElement('img');
+    sliderCard.style.width = this.img_width;
 
     img.src = data.img;
+    img.style.width = this.img_width;
     sliderCard.append(img);
     return sliderCard;
   }

@@ -1,3 +1,18 @@
+// ----------Burger Menu -----------------------
+
+let burger_menu = document.querySelector('.burger_menu');
+const navi = document.querySelector('.mobile_nav');
+
+burger_menu.addEventListener('click', () => {
+  burgerMenuHandler();
+});
+
+function burgerMenuHandler() {
+  burger_menu.classList.toggle('active');
+  navi.classList.toggle('active');
+  document.body.classList.toggle('no-scroll');
+}
+// ----------------------First Slider-------------------
 const frame = document.querySelector('.frame');
 const first_cont = document.createElement('div');
 
@@ -74,7 +89,15 @@ function render(arr) {
   for (let elem of arr) {
     let img_cont = document.createElement('div');
     img_cont.classList.add('img_cont');
-    img_cont.innerHTML = elem;
+
+    let img = document.createElement('div');
+    img.classList.add('img');
+    img.style.backgroundImage = `url(${elem})`;
+
+    for (let i = 0; i < 4; i++) {
+      img_cont.appendChild(img.cloneNode(true));
+    }
+
     card_cont.append(img_cont);
   }
 }
@@ -85,19 +108,19 @@ const [btnLeft, btnRight] = document.querySelectorAll('.triggersJS > button');
 
 btnRight.addEventListener('click', () => {
   if (sliderIndex !== images.length - 1) {
-    clients_container.style.left = `${-1 * ++sliderIndex * cardWidth}px`;
+    card_cont.style.left = `${-1 * ++sliderIndex * cardWidth}px`;
   } else {
     sliderIndex = 0;
-    clients_container.style.left = '0px';
+    card_cont.style.left = '0px';
   }
 });
 
 btnLeft.addEventListener('click', () => {
   if (sliderIndex != 0) {
-    clients_container.style.left = `${-1 * --sliderIndex * cardWidth}px`;
+    card_cont.style.left = `${-1 * --sliderIndex * cardWidth}px`;
   } else {
     sliderIndex = images.length - 1;
-    clients_container.style.left = `${-1 * sliderIndex * cardWidth}px`;
+    card_cont.style.left = `${-1 * sliderIndex * cardWidth}px`;
   }
 });
 
@@ -109,7 +132,7 @@ for (let i = 0; i < images.length; i++) {
 
   roundBtn.addEventListener('click', () => {
     sliderIndex = i;
-    clients_container.style.left = `${-1 * sliderIndex * cardWidth}px`;
+    card_cont.style.left = `${-1 * sliderIndex * cardWidth}px`;
   });
 }
 
@@ -219,3 +242,13 @@ for (let i = 0; i < thanks.length; i++) {
     opinion_block.style.left = `${-1 * sliderIndexOp * cardWidthOp}px`;
   });
 }
+
+// ------------------footer--------------------
+const form = document.querySelector('.footerForm');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  let formData = new FormData(form);
+  let objForm = Object.fromEntries(formData);
+  console.log(objForm);
+});

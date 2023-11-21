@@ -78,7 +78,6 @@ select
 				when range_ > 6000 then 'review_mid_long_haul'
                 when range_ > 2500 and range_ < 6000 then 'review_mid_medium_haul'
                 else 'review_mid_short_haul'
-			end
     end as review_status
 from airliners;
 

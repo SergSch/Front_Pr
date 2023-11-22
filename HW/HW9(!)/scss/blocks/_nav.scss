@@ -1,0 +1,12 @@
+.nav {
+  color: $link;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.nav_list {
+  display: flex;
+  column-gap: clamp(2rem, 2vw, 68px);
+}

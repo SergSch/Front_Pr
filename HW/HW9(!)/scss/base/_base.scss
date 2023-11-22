@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300,300italic,regular,italic,700,700italic,900,900italic&display=swap');
+
+body {
+  font-family: $font-main;
+}
+
+a {
+  color: $link;
+  transition: color 0.2s ease-in;
+
+  &:hover {
+    color: rgb(202, 66, 66);
+  }
+}
+
+.container {
+  // margin: 0 calc((100vw - clamp(300px, 90vw, 1100px)) / 2);
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 0 15px;
+}
+
+.title-2 {
+  color: #333;
+  font-family: 'Merriweather';
+  // font-size: 48px;
+  font-size: clamp(20px, 4vw, 48px);
+  font-weight: 900;
+}
+.title_small {
+  color: #bdbdbd;
+  font-family: 'Lato';
+  // font-size: 24px;
+  font-size: clamp(20px, 2vw, 24px);
+  font-weight: 900;
+}
+
+.none {
+  display: none;
+}
+
+// BTN
+.glow-on-hover {
+  width: 270px;
+  height: 60px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #005fa3;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  font-family: 'Lato';
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: #005fa3;
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #005fa3;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.no-scroll {
+  overflow-y: hidden;
+}
+
+@media (max-width: 320px) {
+  .container {
+    width: 300px;
+  }
+}

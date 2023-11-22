@@ -1,0 +1,131 @@
+.footer {
+  padding: 130px 0 200px;
+  background-image: url('./../img/footer_bg.jpg');
+}
+
+.footer_wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.footer .title-2 {
+  color: #fff;
+  line-height: 1;
+}
+.footer_descr {
+  padding: 60px 0 80px;
+  color: #fff;
+  font-family: 'Lato';
+  font-size: 18px;
+  font-weight: 300;
+}
+.footer_address {
+  display: flex;
+  gap: 40px;
+}
+.footer_phone,
+.footer_email {
+  position: relative;
+}
+.footer_phone img,
+.footer_email img {
+  position: absolute;
+}
+.footer_phone a {
+  margin-left: 35px;
+  color: #fff;
+  font-family: 'Lato';
+  font-size: 21px;
+  font-weight: 300;
+}
+.footer_email a {
+  margin-left: 50px;
+  color: #fff;
+  font-family: 'Lato';
+  font-size: 21px;
+  font-weight: 300;
+}
+.transparent-input {
+  color: #bdbdbd;
+  font-family: 'Lato';
+  font-size: 21px;
+  font-weight: 300;
+}
+.footer-r label {
+  color: #fff;
+  font-family: 'Lato';
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.footer-r input,
+textarea {
+  padding: 15px 0;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid white;
+  background: none;
+  margin-bottom: 35px;
+  color: white;
+}
+.data {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name,
+.surename,
+.textarea {
+  display: flex;
+  flex-direction: column;
+  width: 255px;
+}
+
+.textarea {
+  width: 100%;
+}
+form {
+  position: relative;
+}
+form > .glow-on-hover {
+  position: absolute;
+  right: 0;
+}
+.none {
+  display: none;
+}
+
+@media (max-width: 320px) {
+  .footer {
+    padding: 30px 0 40px;
+    background-image: url('./../img/footer_bg.jpg');
+    min-height: 750px;
+  }
+  .footer_wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .footer_descr {
+    padding: 20px 0 20px;
+
+    font-size: 20px;
+  }
+  .footer_address {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  .data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  form > .glow-on-hover {
+    bottom: -40px;
+  }
+}

@@ -1,0 +1,11 @@
+.ImageProduct {
+  width: 400px;
+  height: 350px;
+  margin: 20px auto;
+
+  border: 1px solid #000;
+}
+
+.ImageProduct img {
+  width: 100%;
+}

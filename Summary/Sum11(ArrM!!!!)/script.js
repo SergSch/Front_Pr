@@ -182,6 +182,7 @@ const products = [
 // }));
 // console.log(arr8);
 // ---------
+
 let arr8 = products.map(({ title, marks }) => ({
   title,
   marks: marks.reduce(

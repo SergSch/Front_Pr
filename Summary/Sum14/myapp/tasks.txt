@@ -1,0 +1,5 @@
+// 1. Создать компоненты ProductItem и ProductsContainer
+
+// 2. В ProductItem создать 4 параграфа: title, description, price, country и передавать в эти параграфы значения из пропсов
+
+// 3. Отобразить 4 продукта с разнами данными на странице

@@ -1,0 +1,18 @@
+.img_style {
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.title_text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+.image_wrapper {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}

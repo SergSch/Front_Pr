@@ -1,0 +1,13 @@
+.product_card_wrapper {
+  margin: 15px;
+  width: 450px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.text_color {
+  color: green;
+}

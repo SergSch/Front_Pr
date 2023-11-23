@@ -1,111 +1,122 @@
-// 'use strict';
-// function showThis(a, b) {
-//   console.log(this);
-//   function sum() {
-//     console.log(this);
-//     return a + b;
-//   }
-//   console.log(sum());
-// }
-// showThis(4, 5);
-
-// function User(name, id) {
-//   this.name = name;
-//   this.id = id;
-//   this.human = true;
-//   this.hello = function () {
-//     console.log('Hello! ' + this.name);
-//   };
-// }
-// let ivan = new User('Ivan', 23);
-// console.log(ivan);
-// ivan.hello();
-
-// function sayName(surename) {
-//   console.log(this);
-//   console.log(this.name + ' ' + surename);
-// }
-// const user = {
-//   name: 'Ann',
-// };
-// sayName.call(user, 'Smith');
-// sayName.apply(user, ['Dee']);
-
-// function count(num) {
-//   return this * num;
-// }
-
-// const double = count.bind(2);
-// console.log(double(3));
-
-const btn = document.querySelector('button');
-btn.addEventListener('click', function () {
-  this.style.backgroundColor = 'red';
-  // console.log(this);
-});
-
-const obj = {
-  num: 5,
-  sayNum: function () {
-    const say = () => {
-      console.log(this.num);
-    };
-    say();
+const products = [
+  {
+    id: 1,
+    title: 'Товар 1',
+    price: 1000,
+    discount: 0.2,
+    marks: [5, 4, 6, 7, 5],
+    count: 8,
   },
-};
-obj.sayNum();
-
-function camelize(str) {
-  return str
-    .split('-')
-    .map((elem, i) => (i == 0 ? elem : elem[0].toUpperCase() + elem.slice(1)))
-    .join('');
-}
-console.log(camelize('background-color'));
-console.log(camelize('list-style-image'));
-console.log(camelize('-webkit-transition'));
-
-let users = [
-  { id: 'john', name: 'John Smith', age: 20 },
-  { id: 'ann', name: 'Ann Smith', age: 24 },
-  { id: 'pete', name: 'Pete Peterson', age: 31 },
+  {
+    id: 2,
+    title: 'Товар 2',
+    price: 1500,
+    discount: 0.1,
+    marks: [6, 7, 7, 6, 5],
+    count: 5,
+  },
+  {
+    id: 3,
+    title: 'Товар 3',
+    price: 800,
+    discount: 0,
+    marks: [5, 5, 6, 7, 6],
+    count: 10,
+  },
+  {
+    id: 4,
+    title: 'Товар 4',
+    price: 1200,
+    discount: 0.15,
+    marks: [7, 6, 6, 5, 7],
+    count: 2,
+  },
+  {
+    id: 5,
+    title: 'Товар 5',
+    price: 2000,
+    discount: 0.25,
+    marks: [6, 7, 7, 7, 6],
+    count: 7,
+  },
+  {
+    id: 6,
+    title: 'Товар 6',
+    price: 700,
+    discount: 0.05,
+    marks: [5, 6, 5, 7, 6],
+    count: 9,
+  },
+  {
+    id: 7,
+    title: 'Товар 7',
+    price: 1800,
+    discount: 0.3,
+    marks: [7, 7, 6, 6, 5],
+    count: 3,
+  },
+  {
+    id: 8,
+    title: 'Товар 8',
+    price: 1600,
+    discount: 0.2,
+    marks: [6, 7, 6, 5, 7],
+    count: 6,
+  },
+  {
+    id: 9,
+    title: 'Товар 9',
+    price: 900,
+    discount: 0.1,
+    marks: [5, 5, 6, 6, 7],
+    count: 4,
+  },
+  {
+    id: 10,
+    title: 'Товар 10',
+    price: 1300,
+    discount: 0.18,
+    marks: [6, 7, 6, 7, 5],
+    count: 1,
+  },
 ];
 
-function groupById(arr) {
-  return arr.reduce((acc, elem) => {
-    acc[elem.id] = elem;
+// создать массив, который состоит только из названий товаров
+
+// сформировать массив из названий товаров, которые стоят меньше 1000
+
+// найти общую сумму всех товаров
+
+// сформировать массив с объектами
+// каждый объект содержит название, цену и оценку
+
+// сформировать массив с объектами
+// каждый объект содержит название, цену и суммарную оценку
+
+// сформировать массив, который состоит из объектов со свойствами
+// title, max_mark, min_mark
+
+// сформировать массив из объектов
+// каждый объект содержит title и marks
+// marks содержит не массив из оценок, а объект в котором каждая оценка является ключем,
+// а значение - кол-во повторений
+
+let newA = products.map(({ title, marks }) => ({
+  title,
+  marks: marks.reduce((acc, elem) => {
+    if (acc[elem]) {
+      acc[elem]++;
+    } else {
+      acc[elem] = 1;
+    }
     return acc;
-  }, {});
+  }, {}),
+}));
+console.log(newA);
+
+function getDigits(val) {
+  return String(val)
+    .split('')
+    .reduce((acc, el) => +acc + +el);
 }
-
-let usersById = groupById(users);
-console.log(usersById);
-
-const funds = [
-  { amount: -1400 },
-  { amount: 2400 },
-  { amount: -1000 },
-  { amount: 500 },
-  { amount: 10400 },
-  { amount: -11400 },
-];
-
-const getPositiveIncomeAmount = (data) => {
-  return data
-    .filter((elem) => elem.amount > 0)
-    .reduce((acc, elem) => acc + elem.amount, 0);
-};
-console.log(getPositiveIncomeAmount(funds));
-
-const getTotalIncomeAmount = (data) => {
-  let arr = data.map((elem) => Object.values(elem));
-  let sum = 0;
-  if (arr.some((elem) => elem[0] < 0)) {
-    sum = arr.reduce((acc, elem) => {
-      return acc + elem[0];
-    }, 0);
-  } else {
-  }
-  return sum;
-};
-console.log(getTotalIncomeAmount(funds));
+console.log(getDigits(12345));

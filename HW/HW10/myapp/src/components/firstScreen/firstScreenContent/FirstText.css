@@ -1,0 +1,29 @@
+.first_box {
+  position: relative;
+  display: grid;
+  grid-template-columns: 586px 540px;
+}
+.block_r {
+  position: absolute;
+  right: -75px;
+  top: 70px;
+}
+
+.block_l {
+  padding: 126px 0 180px;
+}
+
+.first_title {
+  margin-bottom: 70px;
+  color: #22356f;
+  font-size: 48px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.2;
+  letter-spacing: -1.68px;
+}
+.first_text {
+  color: #22356f;
+  font-size: 24px;
+  line-height: 1.8; /* 42.552px */
+}

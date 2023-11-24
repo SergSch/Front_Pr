@@ -14,7 +14,7 @@ export default function Header() {
           alignItems: 'center',
         }}
       >
-        <img src="./../../../img/logo.png" alt="logo" />
+        <img src="assets/logo.png" alt="logo" />
       </div>
       <Link to="/about" text="О нас" />
       <Link to="/services" text="Услуги" />

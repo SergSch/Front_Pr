@@ -1,0 +1,23 @@
+.blockL {
+  background: #62d0df;
+  padding: 150px 270px;
+  height: 610px;
+}
+
+.title {
+  margin-bottom: 40px;
+  color: #fff;
+  font-size: 36px;
+  font-style: italic;
+  line-height: 0.75; /* 27.659px */
+  letter-spacing: -0.216px;
+}
+
+.text {
+  color: #fff;
+  text-align: justify;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.5; /* 35.46px */
+}

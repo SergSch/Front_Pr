@@ -1,0 +1,22 @@
+.wrap {
+  background: #f4f9e2;
+  padding: 240px 170px;
+  height: 800px;
+}
+
+.title {
+  margin-bottom: 50px;
+  color: #22356f;
+  font-size: 36px;
+  font-style: italic;
+  line-height: 0.8; /* 27.659px */
+  letter-spacing: -0.216px;
+}
+
+.text {
+  color: #22356f;
+  font-size: 36px;
+  font-style: italic;
+  line-height: 1.5; /* 53.19px */
+  letter-spacing: -0.36px;
+}

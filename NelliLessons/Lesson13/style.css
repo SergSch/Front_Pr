@@ -1,0 +1,22 @@
+.workers_container {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.workers_container > div > img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}

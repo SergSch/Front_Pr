@@ -1,0 +1,14 @@
+.simpleParagraph {
+  padding: 10px 0;
+  font-size: 16px;
+}
+
+.lightTheme.simpleParagraph {
+  background-color: rgb(123, 250, 208);
+  color: darkblue;
+}
+
+.darkTheme.simpleParagraph {
+  background-color: darkblue;
+  color: white;
+}

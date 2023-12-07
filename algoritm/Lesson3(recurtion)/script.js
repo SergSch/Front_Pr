@@ -41,5 +41,16 @@ const fibonacciIteration = (n) => {
   }
   return result;
 };
+console.log(fibonacciIteration(5));
+
+function S(n) {
+  if (n <= 0) return "The number can't be negative";
+  let sum = 0;
+  for (let i = 1; i <= n; i++) {
+    sum += i;
+  }
+  return sum;
+}
+console.log(S(5));
 
 // 1.Числами Фибоначчи- 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711

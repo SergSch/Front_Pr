@@ -26,9 +26,19 @@ function App() {
     });
     setTodos(completTodo);
   };
+
+  const addTodo = (title) => {
+    let new_todo = {
+      id: Date.now(),
+      title,
+      completed: false,
+    };
+    setTodos([...todos, new_todo]);
+  };
+
   return (
     <div>
-      <AddForm />
+      <AddForm addTodo={addTodo} />
       <TodoList
         todos={todos}
         delTodoById={delTodoById}

@@ -5,7 +5,7 @@ export default function LoginForm({ userName, newUserData }) {
   // const [login, setLogin] = useState('');
   // const [passwd, setPasswd] = useState('');
 
-  const [userDataObj, setUserDataObj] = useState({});
+  const [userDataObj, setUserDataObj] = useState({login: '', passwd: ''});
 
   const [error, setError] = useState('');
 
@@ -49,7 +49,7 @@ export default function LoginForm({ userName, newUserData }) {
             const attemptData = {
               id: Date.now(),
               login: userDataObj.login,
-              pwd: userDataObj.passwd,
+              passwd: userDataObj.passwd,
             };
             setAttempts([...attempts, attemptData]);
 

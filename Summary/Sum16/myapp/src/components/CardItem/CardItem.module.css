@@ -1,8 +1,21 @@
 .item {
+  position: relative;
   border: 1px solid black;
   border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 25px;
+}
+
+.closeIcon {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.item:hover .closeIcon {
+  display: block;
 }

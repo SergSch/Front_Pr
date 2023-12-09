@@ -27,12 +27,32 @@ function App() {
   };
   const createPost = (newWord) => {
     setWords([...words, newWord]);
+    // localStorage.setItem('words', JSON.stringify(words));
+  };
+
+  const change_lang = (card_id) => {
+    setWords(
+      words.map((elem) => {
+        if (elem.id == card_id) {
+          elem.language = elem.language === 'ru' ? 'en' : 'ru';
+        }
+        return elem;
+      })
+    );
+  };
+
+  const deleteWord = (id) => {
+    setWords(words.filter((elem) => elem.id !== id));
   };
 
   return (
     <div>
-      <Form create={createPost} />
-      <CardsContainer words_data={words} />
+      <Form create={createPost} wordsHandler={createPost} />
+      <CardsContainer
+        words_data={words}
+        changeWordLang={change_lang}
+        deleteW={deleteWord}
+      />
       <Triggers changeToEng={changeToEng} changeToRus={changeToRus} />
     </div>
   );

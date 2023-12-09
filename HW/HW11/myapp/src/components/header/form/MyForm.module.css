@@ -1,0 +1,41 @@
+.selectBlock {
+  display: flex;
+  margin-bottom: 40px;
+  gap: 40px;
+}
+
+.bottom_block {
+  display: flex;
+  justify-content: space-between;
+}
+
+.select {
+  width: 200px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.input {
+  width: 440px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.myBtn {
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  width: 155.347px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #1abc9c;
+  border: none;
+  cursor: pointer;
+}
+.myBtn:hover {
+  opacity: 0.9;
+}
+.myBtn:active {
+  position: relative;
+  top: 1px;
+}

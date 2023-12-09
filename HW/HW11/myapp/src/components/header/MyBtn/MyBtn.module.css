@@ -1,0 +1,18 @@
+.myBtn {
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  width: 155.347px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #1abc9c;
+  border: none;
+  cursor: pointer;
+}
+.myBtn:hover {
+  opacity: 0.9;
+}
+.myBtn:active {
+  position: relative;
+  top: 1px;
+}
